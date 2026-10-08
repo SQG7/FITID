@@ -1,0 +1,14 @@
+.lists {
+  margin-top: 24px;
+}
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  background: rgba(255,255,255,.04);
+}
+.listItem + .listItem { margin-top: 10px; }
+.listItem span { color: var(--color-muted); font-size: .9rem; }

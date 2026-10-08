@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FITID - Gestão</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-fitid">
+
+<div class="fitid-layout">
+
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <h1>FITID</h1>
+            <p>GESTÃO</p>
+        </div>
+
+        <nav>
+            <a href="#dashboard" class="menu-item active" data-section="dashboard">Dashboard</a>
+            <a href="#alunos" class="menu-item" data-section="alunos">Alunos</a>
+            <a href="#estrutura" class="menu-item" data-section="estrutura">Estrutura</a>
+            <a href="#biblioteca" class="menu-item" data-section="biblioteca">Exercícios</a>
+            <a href="#treinos" class="menu-item" data-section="treinos">Treinos</a>
+            <a href="estatisticas.html" class="menu-item">Relatórios</a>
+        </nav>
+    </aside>
+
+    <main class="dashboard-main">
+
+        <div class="dashboard-header">
+            <div>
+                <h1>GESTÃO (ACADEMIA)</h1>
+                <p>Painel inteligente da academia</p>
+            </div>
+            <button id="btnSairAdmin" class="secondary-btn" type="button">Sair</button>
+        </div>
+
+        <section id="dashboard" class="painel-section active-section">
+            <div id="estatisticas"></div>
+
+            <section class="dashboard-section">
+                <div class="section-card">
+                    <h2>Histórico Recente</h2>
+                    <div id="historicoRecente"></div>
+                </div>
+                <div class="section-card">
+                    <h2>Alunos Mais Ativos</h2>
+                    <div id="alunosAtivos"></div>
+                </div>
+            </section>
+        </section>
+
+        <section id="alunos" class="painel-section">
+            <div class="section-card">
+                <h2>Cadastrar Aluno</h2>
+                <p class="form-help">Cada aluno pertence somente a esta academia. Se ele sair, marque como inativo em vez de apagar o histórico.</p>
+                <form id="formAluno">
+                    <input type="text" id="nome" placeholder="Nome do aluno">
+                    <input type="text" id="rfid" placeholder="RFID / código da pulseira">
+                    <select id="aluno_status">
+                        <option value="ativo">Ativo</option>
+                        <option value="inativo">Inativo</option>
+                    </select>
+                    <button type="submit">Cadastrar Aluno</button>
+                </form>
+            </div>
+
+            <section class="section-card">
+                <div class="section-title-row">
+                    <h2>Alunos da Academia</h2>
+                    <input type="text" id="buscaAlunos" class="busca-input" placeholder="Buscar aluno ou RFID">
+                </div>
+                <div id="alunosLista"></div>
+            </section>
+        </section>
+
+        <section id="estrutura" class="painel-section">
+            <section class="dashboard-section">
+                <div class="section-card">
+                    <h2>Cadastrar Grupo de Equipamento</h2>
+                    <p class="form-help">Use nomes que expliquem onde exercícios podem ser feitos. Ex.: Supino, Polia, Leg Press, Esteira.</p>
+                    <form id="formGrupo">
+                        <input type="text" id="grupo_nome" placeholder="Serve para exercícios de... Ex: Supino">
+                        <button type="submit">Cadastrar Grupo</button>
+                    </form>
+                </div>
+
+                <div class="section-card">
+                    <h2>Cadastrar Aparelho Físico</h2>
+                    <p class="form-help">O aparelho físico é a máquina real. Dois supinos diferentes ficam como Supino 01 e Supino 02.</p>
+                    <form id="formAparelho">
+                        <input type="text" id="aparelho_nome" placeholder="Nome. Ex: Supino 03">
+                        <select id="aparelho_grupo_id"></select>
+                        <select id="aparelho_status">
+                            <option value="livre">Livre</option>
+                            <option value="manutencao">Manutenção</option>
+                            <option value="offline">Offline</option>
+                        </select>
+                        <button type="submit">Cadastrar Aparelho</button>
+                    </form>
+                </div>
+            </section>
+
+            <section class="section-card">
+                <h2>Grupos de Equipamento</h2>
+                <div id="gruposLista"></div>
+            </section>
+
+            <section class="section-card">
+                <div class="section-title-row">
+                    <h2>Aparelhos da Academia</h2>
+                    <input type="text" id="buscaAparelhos" class="busca-input" placeholder="Buscar aparelho ou grupo">
+                </div>
+                <div id="aparelhosLista"></div>
+            </section>
+        </section>
+
+        <section id="biblioteca" class="painel-section">
+            <div class="section-card">
+                <h2>Cadastrar Exercício Disponível</h2>
+                <p class="form-help">Aqui fica a biblioteca da academia. O exercício é ligado ao grupo em que ele pode ser feito.</p>
+                <form id="formExercicioBase">
+                    <input type="text" id="exercicio_base_nome" placeholder="Nome. Ex: Supino reto">
+                    <select id="exercicio_base_grupo_id"></select>
+                    <input type="text" id="exercicio_base_gif" placeholder="URL do GIF">
+                    <input type="text" id="exercicio_base_descricao" placeholder="Descrição curta">
+                    <button type="submit">Cadastrar Exercício</button>
+                </form>
+            </div>
+
+            <section class="section-card">
+                <div class="section-title-row">
+                    <h2>Biblioteca de Exercícios</h2>
+                    <input type="text" id="buscaExercicios" class="busca-input" placeholder="Buscar exercício ou grupo">
+                </div>
+                <div id="exerciciosBaseLista"></div>
+            </section>
+        </section>
+
+        <section id="treinos" class="painel-section">
+            <section class="dashboard-section">
+                <div class="section-card">
+                    <h2>Criar Treino para Aluno</h2>
+                    <p class="form-help">Ex.: Treino A - Peito e Costas. Depois adicione os exercícios dentro dele.</p>
+                    <form id="formPlanoTreino">
+                        <select id="plano_aluno_id"></select>
+                        <input type="text" id="plano_nome" placeholder="Nome do treino. Ex: Treino A">
+                        <input type="text" id="plano_objetivo" placeholder="Objetivo. Ex: Hipertrofia">
+                        <button type="submit">Cadastrar Treino</button>
+                    </form>
+                </div>
+
+                <div class="section-card">
+                    <h2>Adicionar Exercício ao Treino</h2>
+                    <p class="form-help">Escolha um treino já criado e adicione exercícios da biblioteca.</p>
+                    <form id="formTreino">
+                        <select id="plano_id"></select>
+                        <select id="exercicio_id"></select>
+                        <input type="number" id="series" placeholder="Séries">
+                        <input type="number" id="repeticoes" placeholder="Repetições">
+                        <input type="number" id="ordem" placeholder="Ordem" value="1">
+                        <button type="submit">Adicionar ao Treino</button>
+                    </form>
+                </div>
+            </section>
+
+            <section class="section-card">
+                <div class="section-title-row">
+                    <h2>Treinos dos Alunos</h2>
+                    <input type="text" id="buscaTreinos" class="busca-input" placeholder="Buscar por aluno, treino ou exercício">
+                </div>
+                <div id="treinosAgrupadosLista"></div>
+            </section>
+        </section>
+
+    </main>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span id="fechar">&times;</span>
+        <div id="conteudo-modal"></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

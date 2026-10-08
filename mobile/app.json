@@ -1,0 +1,14 @@
+{
+  "expo": {
+    "name": "FITID",
+    "slug": "fitid-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "fitid",
+    "userInterfaceStyle": "dark",
+    "plugins": ["expo-router"],
+    "experiments": { "typedRoutes": true },
+    "android": { "package": "br.com.fitid.mobile" },
+    "ios": { "bundleIdentifier": "br.com.fitid.mobile" }
+  }
+}

@@ -1,0 +1,64 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.62);
+  backdrop-filter: blur(8px);
+}
+
+.modal {
+  width: min(620px, 100%);
+  border: 1px solid var(--color-border);
+  border-radius: 28px;
+  background: linear-gradient(180deg, #101a2c, #07111f);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  padding: 22px 24px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.close {
+  border: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-text);
+  font-weight: 900;
+}
+
+.body {
+  padding: 24px;
+}
+
+.message {
+  margin: 0 0 16px;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.details {
+  margin: 0;
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #dbeafe;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  font-size: 0.9rem;
+}

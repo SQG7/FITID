@@ -1,0 +1,30 @@
+.search {
+  width: min(520px, 100%);
+}
+.planCard {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  border-radius: 20px;
+  border: 1px solid var(--color-border);
+  background: rgba(255,255,255,.04);
+}
+.planHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-start;
+}
+.exList {
+  display: grid;
+  gap: 10px;
+}
+.exItem {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.05);
+}
+.muted { color: var(--color-muted); }

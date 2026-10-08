@@ -1,0 +1,29 @@
+# Dependencias
+**/node_modules/
+
+# Variaveis locais e credenciais
+**/.env
+**/.env.local
+**/.env.development
+**/.env.production
+**/.env.*
+!**/.env.example
+
+# Builds e caches
+**/dist/
+**/build/
+**/web-build/
+**/.expo/
+**/*.tsbuildinfo
+web/vite.config.js
+web/vite.config.d.ts
+mobile/expo-env.d.ts
+
+# Logs e sistema
+*.log
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
